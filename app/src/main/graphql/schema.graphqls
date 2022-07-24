@@ -1,0 +1,294 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+type Cast {
+    adult: Boolean
+    backdrop_path: String
+    character: String
+    credit_id: String
+    genre_ids: [Int!]!
+    id: Int!
+    original_language: String
+    original_title: String
+    overview: String
+    popularity: Int
+    poster_path: String
+    release_date: String
+    title: String
+    video: Boolean
+    vote_average: Int
+    vote_count: Int
+}
+
+type Company {
+    id: Int!
+    logo_path: String
+    name: String!
+    origin_country: String
+}
+
+type Country {
+    iso_3166_1: String!
+    name: String!
+}
+
+type Creator {
+    credir_id: String
+    gender: Int
+    id: Int!
+    name: String
+    profile_path: String
+}
+
+type Credits {
+    cast: [Cast!]!
+    crew: [Crew!]!
+    id: Int!
+}
+
+type Crew {
+    adult: Boolean
+    backdrop_path: String
+    credit_id: String
+    department: String
+    genre_ids: [Int!]!
+    id: Int!
+    job: String
+    original_language: String
+    original_title: String
+    overview: String
+    popularity: Int
+    poster_path: String
+    release_date: String
+    title: String
+    video: Boolean
+    vote_average: Int
+    vote_count: Int
+}
+
+type Episode {
+    air_date: String
+    crew: [Crew!]!
+    episode_number: Int
+    guest_stars: [GuestStar!]!
+    id: Int!
+    name: String
+    overview: String
+    production_code: String
+    season_number: Int
+    still_path: String
+    vote_average: Int
+    vote_count: Int
+}
+
+type EpisodeOutput {
+    episode: Episode
+    error: String
+    ok: Boolean!
+}
+
+type Genre {
+    id: Int!
+    name: String!
+}
+
+type GuestStar {
+    character: String
+    credit_id: String
+    id: Int!
+    name: String
+    order: Int
+    profile_path: String
+}
+
+type Language {
+    iso_639_1: String!
+    name: String!
+}
+
+type LastEpisode {
+    air_date: String
+    episode_number: Int
+    id: Int!
+    name: String
+    overview: String
+    production_code: String
+    season_number: Int
+    still_path: String
+    vote_average: Int
+    vote_count: Int
+}
+
+type Movie {
+    adult: Boolean
+    backdrop_path: String
+    budget: Int
+    credits: Credits!
+    genres: [Genre!]!
+    homepage: String
+    id: Int!
+    imdb_id: String
+    original_language: String
+    original_title: String
+    overview: String
+    popularity: Int
+    poster_path: String
+    production_companies: [Company!]!
+    production_countries: [Country!]!
+    release_date: String
+    revenue: Int
+    runtime: Int
+    spoken_languages: [Language!]!
+    status: String
+    tagline: String
+    videos: VideoResults!
+    vote_average: Float
+    vote_count: Int
+}
+
+type MovieOutput {
+    error: String
+    movie: Movie
+    ok: Boolean!
+}
+
+type MoviesOutput {
+    error: String
+    movies: [Movie!]
+    ok: Boolean!
+}
+
+type Network {
+    headquarters: String
+    homepage: String
+    id: Int!
+    logo_path: String
+    name: String
+    origin_country: String
+}
+
+type PeopleOutput {
+    error: String
+    ok: Boolean!
+    people: [Person!]
+}
+
+type Person {
+    adult: Boolean
+    also_knwon_as: String
+    biography: String
+    birthday: String
+    deathday: String
+    gender: Int
+    homepage: String
+    id: Int!
+    imdb_id: String
+    known_for_department: String
+    name: String
+    place_of_birth: String
+    profile_path: String
+}
+
+type PersonOutput {
+    error: String
+    ok: Boolean!
+    person: Person
+}
+
+type Query {
+    airingTodayShows: ShowsOutput!
+    episodeDetail(episodeNumber: Int!, seasonNumber: Int!, showId: Int!): EpisodeOutput!
+    movieDetail(id: Int!): MovieOutput!
+    nowPlayingMovies: MoviesOutput!
+    personDetail(id: Int!): PersonOutput!
+    popularMovies: MoviesOutput!
+    popularShows: ShowsOutput!
+    searchMovie(query: String!): MoviesOutput!
+    searchPeople(query: String!): PeopleOutput!
+    searchShow(query: String!): ShowsOutput!
+    seasonDetail(seasonNumber: Int!, showId: Int!): SeasonOutput!
+    showDetail(id: Int!): ShowOutput!
+    similarMovies(id: Int!): MoviesOutput!
+    similarShows(id: Int!): ShowsOutput!
+    topRatedShows: ShowsOutput!
+    upcomingMovies: MoviesOutput!
+}
+
+type Season {
+    air_date: String
+    episodes: [Episode!]!
+    id: Int!
+    name: String
+    overview: String
+    poster_path: String
+    season_number: Int
+}
+
+type SeasonOutput {
+    error: String
+    ok: Boolean!
+    season: Season
+}
+
+type Show {
+    backdrop_path: String
+    created_by: [Creator!]!
+    episode_run_time: [Int!]!
+    first_air_date: String
+    genres: [Genre!]!
+    homepage: String
+    id: Int!
+    in_production: Boolean
+    languages: [Language!]!
+    last_air_date: String
+    last_episode_to_air: LastEpisode
+    name: String
+    networks: [Network!]!
+    number_of_episodes: Int
+    number_of_seasons: Int
+    origin_country: [String!]!
+    original_language: String
+    original_name: String
+    overview: String
+    popularity: Int
+    poster_path: String
+    production_companies: [Company!]!
+    production_countries: [Country!]!
+    seasons: [Season!]!
+    spoken_languages: [Language!]!
+    status: String
+    tagline: String
+    type: String
+    vote_average: Int
+    vote_count: Int
+}
+
+type ShowOutput {
+    error: String
+    ok: Boolean!
+    show: Show
+}
+
+type ShowsOutput {
+    error: String
+    ok: Boolean!
+    shows: [Show!]
+}
+
+type Video {
+    id: Int!
+    iso_3166_1: String
+    iso_639_1: String
+    key: String
+    name: String
+    site: String
+    size: Int
+    type: String
+}
+
+type VideoResults {
+    results: [Video!]!
+}

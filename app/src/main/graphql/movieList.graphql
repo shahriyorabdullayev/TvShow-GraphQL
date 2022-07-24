@@ -1,0 +1,19 @@
+query PopularMovies {
+    popularMovies {
+        ok
+        error
+        movies {
+            id
+            original_title
+            release_date
+            original_language
+            adult
+            backdrop_path
+            poster_path
+            release_date
+            vote_average
+            vote_count
+        }
+    }
+
+}
